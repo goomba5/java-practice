@@ -16,14 +16,11 @@ public class GreatestNumberApp {
         while(answer.equalsIgnoreCase("y")){
 
             // retrieve user responses from the console
-            System.out.print("Enter an integer: ");
-            numOne = scan.nextInt();
+            numOne = checkInt(scan, "Enter an integer: ");
 
-            System.out.print("Enter a second integer: ");
-            numTwo = scan.nextInt();
+            numTwo = checkInt(scan, "Enter a second integer: ");
 
-            System.out.print("Enter a third integer: ");
-            numThree = scan.nextInt();
+            numThree = checkInt(scan, "Enter a third integer: ");
 
             // display the largest number
             int largestNumber = getLargestNumber(numOne,numTwo,numThree);
@@ -46,5 +43,23 @@ public class GreatestNumberApp {
         else{
             return x;
         }
+    }
+
+    public static int checkInt(Scanner sc, String prompt){
+        boolean isInteger = false;
+        int anInteger = 0;
+
+        while(!isInteger){
+            System.out.print(prompt);
+            if(sc.hasNextInt()){
+                anInteger = sc.nextInt();
+                isInteger = true;
+            }
+            else{
+                System.out.println("Please enter an integer.");
+            }
+            sc.nextLine();
+        }
+        return anInteger;
     }
 }
