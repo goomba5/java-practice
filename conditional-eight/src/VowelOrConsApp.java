@@ -1,27 +1,38 @@
 import java.util.Objects;
+import java.util.Scanner;
 
 public class VowelOrConsApp {
     public static void main(String[] args) {
-        //if not a letter OR string is > 1, then print an error msg
-        // print vowel or consonant
 
-        String letter = checkLetter("u");
+        Scanner scan = new Scanner(System.in);
 
-        System.out.println(letter);
+        String answer = "y";
+
+        while(answer.equalsIgnoreCase("y")){
+            String letter = checkLetter(scan, "Enter a letter: ");
+
+            System.out.println(letter);
+
+            System.out.println("Continue? (y/n): ");
+            answer = scan.next();
+        }
+        System.out.println();
+        System.out.println("Thank you for using this Aperture Science application. Goodbye!");
 
     }
 
-    public static String checkLetter(String input){
+    public static String checkLetter(Scanner sc, String prompt){
         boolean isLetter = false;
-        String test = "";
         String letters = "";
+        String input = "";
         String[] vowels = {"a", "e", "i", "o", "u"};
 
-
         while(!isLetter){
+            System.out.print(prompt);
+            input = sc.next();
             if(input.length() > 1){
                 letters = "Error. Please enter a letter";
-                isLetter = false;
+                break;
             }
             else{
                 for(String l : vowels){
@@ -36,6 +47,7 @@ public class VowelOrConsApp {
                     }
                 }
             }
+            sc.nextLine();
         }
         return letters;
     }
