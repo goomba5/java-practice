@@ -18,8 +18,4 @@ public class ArrayTypeApp {
         System.out.println("Second array is type " + intType);
         System.out.println("Third array is type " + doubleType);
     }
-//
-//    public static Class<?> checkArrayType(Array[] array){
-//        return array.getClass().getComponentType();
-//    }
 }
