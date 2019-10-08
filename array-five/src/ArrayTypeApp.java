@@ -14,8 +14,8 @@ public class ArrayTypeApp {
         Class<?> doubleType = doubleArray.getClass().getComponentType();
 
         // print result
-        System.out.println("First array is type " + stringType);
-        System.out.println("Second array is type " + intType);
-        System.out.println("Third array is type " + doubleType);
+        System.out.println("First array is type " + stringType.toString());
+        System.out.println("Second array is type " + intType.toString());
+        System.out.println("Third array is type " + doubleType.toString());
     }
 }
