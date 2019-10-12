@@ -15,7 +15,6 @@ public class ArrayValueCheckApp {
 
         System.out.println(isMatch);
 
-
     }
     public static int getInt(Scanner sc, String prompt){
         boolean isInt = false;
