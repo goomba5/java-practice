@@ -8,6 +8,7 @@ public class CharacterLoadoutApp {
     /*Kinetic Slot */
     List<KineticWeapon> kineticWeapons = new ArrayList<>();
 
+
     KineticWeapon kineticOne = new KineticWeapon(1, "Randy's Throwing Knife",
             "I'm taking the left flank!", 951,
             false, false, true);
@@ -27,8 +28,11 @@ public class CharacterLoadoutApp {
     kineticWeapons.add(kineticThree);
 
     }
-    public static String checkKineticSlot(KineticWeapon kw){
+    public static String equipKineticWeapon(KineticWeapon kw){
         String value = "";
+        if(kw.isExotic()){
+            System.out.println("You cannot equip ");
+        }
 
         return value;
     }
