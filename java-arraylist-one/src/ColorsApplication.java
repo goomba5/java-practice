@@ -77,7 +77,7 @@ public class ColorsApplication {
 
         public static void addColor(List<String> list, String color){
             list.add(color);
-            System.out.println(color + "has been added to the list!");
+            System.out.println(color + " has been added to the list!");
         }
 
         public static void printColorList(List<String> list){
