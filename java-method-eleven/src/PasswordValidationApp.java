@@ -7,22 +7,40 @@ public class PasswordValidationApp {
         3. Must contain at least two digits
          */
 
-        String password = "BlackPanther";
+        // references
+        /*
+        1. https://stackoverflow.com/questions/8370873/java-isletterordigit-method-isdigit-isletter
+         */
 
-        System.out.println(passwordEvaluation(password));
+        String password = "cookies";
+
+        passwordEvaluation(password);
     }
 
-    public static String passwordEvaluation(String str){
+    public static void passwordEvaluation(String str){
         // str must have eight characters
         int totalChars = 8;
-        boolean isValid = false;
-        String response = "";
 
-            if (str.length() < totalChars) {
-                System.out.println("Invalid password. Must contain at least eight characters.");
+//            if (str.length() < totalChars) {
+//                System.out.println("Invalid password. Must contain at least eight characters.");
+            if(!hasLettersAndNumbers(str)){
+                System.out.println("Invalid password. Must be only letters and numbers, with at least two digits.");
             } else {
-                response = "You have entered a valid password";
+                System.out.println("You have entered a valid password");
             }
-        return response;
+    }
+
+    public static boolean hasLettersAndNumbers(String str) {
+//        boolean validCharacter = false;
+
+        for (char ch : str.toCharArray()) {
+            boolean isDigit = Character.isDigit(ch);
+            boolean isLetter = Character.isLetter(ch);
+
+            if(!isDigit || !isLetter){
+                return false;
+            }
+        }
+        return true;
     }
 }
