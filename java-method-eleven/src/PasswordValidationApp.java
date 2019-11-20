@@ -12,34 +12,48 @@ public class PasswordValidationApp {
         1. https://stackoverflow.com/questions/8370873/java-isletterordigit-method-isdigit-isletter
          */
 
-        String password = "cookies";
+        String password = "**GGGGG";
 
         passwordEvaluation(password);
     }
 
     public static void passwordEvaluation(String str){
-        // str must have eight characters
-        int totalChars = 8;
 
-//            if (str.length() < totalChars) {
-//                System.out.println("Invalid password. Must contain at least eight characters.");
-            if(!hasLettersAndNumbers(str)){
-                System.out.println("Invalid password. Must be only letters and numbers, with at least two digits.");
+            if (!hasValidNumOfCharacters(str) || !hasLettersAndNumbers(str)) {
+                System.out.println("Invalid password. Must contain 8-10 characters" +
+                        " that are letters and numbers, with at least two digits.");
             } else {
                 System.out.println("You have entered a valid password");
             }
     }
 
     public static boolean hasLettersAndNumbers(String str) {
-//        boolean validCharacter = false;
+        boolean validCharacters = true;
+        boolean foundDigit, foundLetter;
 
         for (char ch : str.toCharArray()) {
             boolean isDigit = Character.isDigit(ch);
             boolean isLetter = Character.isLetter(ch);
+            boolean isNotLetterOrNumber = Character.isLetterOrDigit(ch);
 
-            if(!isDigit || !isLetter){
-                return false;
+            if(isDigit){
+                foundDigit = true;
+            } else if(isLetter){
+                foundLetter = true;
+            } else {
+                validCharacters = false;
             }
+
+        }
+        return validCharacters;
+    }
+
+    public static boolean hasValidNumOfCharacters(String str){
+        int minCharacters = 8;
+        int maxCharacters = 10;
+
+        if (str.length() < minCharacters || str.length() > maxCharacters){
+            return false;
         }
         return true;
     }
