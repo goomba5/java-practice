@@ -12,18 +12,29 @@ public class PasswordValidationApp {
         1. https://stackoverflow.com/questions/8370873/java-isletterordigit-method-isdigit-isletter
          */
 
-        String password = "**GGGGG";
+        String password = "CMND/CTRL";
+        String password1 = "99problems";
+        String password2 = "15step";
 
+        System.out.println("Test 1");
         passwordEvaluation(password);
+
+        System.out.println("Test 2");
+        passwordEvaluation(password1);
+
+        System.out.println("Test 3");
+        passwordEvaluation(password2);
     }
 
     public static void passwordEvaluation(String str){
 
-            if (!hasValidNumOfCharacters(str) || !hasLettersAndNumbers(str)) {
+            if (hasValidNumOfCharacters(str) &&
+                    hasLettersAndNumbers(str) &&
+                    hasValidNumberOfDigits(str)) {
+                System.out.println("You have entered a valid password! Good job!");
+            } else {
                 System.out.println("Invalid password. Must contain 8-10 characters" +
                         " that are letters and numbers, with at least two digits.");
-            } else {
-                System.out.println("You have entered a valid password");
             }
     }
 
@@ -56,5 +67,22 @@ public class PasswordValidationApp {
             return false;
         }
         return true;
+    }
+
+    public static boolean hasValidNumberOfDigits(String str){
+        int minDigits = 2;
+        int maxDigits = 8;
+        boolean validDigits = false;
+        int numCount = 0;
+
+        for(char ch: str.toCharArray()){
+            if(Character.isDigit(ch)){
+                numCount++;
+            }
+        }
+        if(numCount >= minDigits && numCount <= maxDigits){
+            validDigits = true;
+        }
+        return validDigits;
     }
 }
