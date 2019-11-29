@@ -6,8 +6,11 @@ public class AddElementToArray {
         // within an array
 
         int[] arr = {1, 2, 3, 4, 5};
+        int[] arr1 = {18, 44, -26, 55};
 
         addElementToArray(arr, 5, 0);
+
+        addElementToArray(arr1, 2, 4);
     }
     public static void addElementToArray(int[] arr, int element, int index){
         int[] newArray = new int[arr.length + 1];
